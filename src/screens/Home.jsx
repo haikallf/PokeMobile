@@ -40,7 +40,7 @@ export default function Home({ navigation }) {
 
   const fetchMorePokemons = () => {
     setSection(section + 1);
-    setOffset(25 * (section + 1) + 1);
+    setOffset(25 * section);
   };
 
   return (
