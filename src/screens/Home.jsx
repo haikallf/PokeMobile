@@ -5,6 +5,9 @@ import {
   ActivityIndicator,
   View,
   TouchableOpacity,
+  Text,
+  Button,
+  StyleSheet,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { getAllPokemons } from "../services/pokemon-api";
@@ -45,6 +48,15 @@ export default function Home({ navigation }) {
 
   return (
     <SafeAreaView style={globalStyles.safeAreaView}>
+      <View style={styles.hStack}>
+        <Text>Compare 2 Pokémons</Text>
+        <Button
+          title="Compare"
+          onPress={() => {
+            navigation.navigate("Comparison");
+          }}
+        />
+      </View>
       <FlatList
         contentContainerStyle={{ paddingLeft: 16, paddingRight: 16 }}
         data={pokemons}
@@ -65,3 +77,17 @@ export default function Home({ navigation }) {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  hStack: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: 40,
+    marginLeft: 16,
+    marginRight: 16,
+  },
+  container: {
+    marginTop: 8,
+  },
+});
