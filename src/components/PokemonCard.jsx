@@ -4,14 +4,7 @@ import { getPokemonImgById } from "../services/pokemon-api";
 
 export default function PokemonCard(props) {
   return (
-    <TouchableOpacity
-      onPress={() =>
-        props.navigation.navigate("Details", {
-          id: props.id,
-          name: props.name,
-        })
-      }
-    >
+    <TouchableOpacity onPress={props.onPress}>
       <View style={styles.view}>
         <Image
           source={{ uri: getPokemonImgById(props.id) }}
